@@ -1,0 +1,5 @@
+.directory-menu {
+    display: grid;
+    grid-template: 1fr 1fr / repeat(6, 1fr);
+    gap: 32px;
+}

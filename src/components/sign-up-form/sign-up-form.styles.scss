@@ -1,0 +1,9 @@
+.sign-up {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    padding: 16px;
+    &__subheading {
+        margin-bottom: 16px;
+    }
+}

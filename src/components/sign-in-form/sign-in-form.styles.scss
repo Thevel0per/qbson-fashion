@@ -1,0 +1,17 @@
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    padding: 16px;
+    &__heading {
+        margin-bottom: 16px;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 16px;
+    }
+}

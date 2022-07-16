@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import Category from '../category';
 import './directory-menu.styles.scss';

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { createContext, useState, useEffect } from 'react';
 import { onAuthStateChangedListener } from '../api/firebase/authetication';
 import { createUserDocumentFromAuth } from '../api/firebase/firestore';

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import './product-card.styles.scss';
 import AppButton from '../app-button';

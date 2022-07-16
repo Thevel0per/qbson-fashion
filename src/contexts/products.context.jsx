@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { createContext, useState } from 'react';
 import PRODUCTS from '../mockData/shop-data.json';
 

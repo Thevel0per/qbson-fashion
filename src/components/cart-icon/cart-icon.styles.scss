@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+.cart-icon {
+    position: relative;
+
+    &__svg {
+        font-size: 46px;
+    }
+
+    &__items {
+        display: inline-block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        top: calc(50% - 8px);
+        left: calc(50% - 10px);
+    }
+}

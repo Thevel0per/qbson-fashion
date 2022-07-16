@@ -31,7 +31,7 @@ const NavigationBar = () => {
           </Link>
         )
         }
-        <button>
+        <button className='navigation__button'>
           <li className='navigation__item'><CartIcon /></li>
         </button>
       </ul>

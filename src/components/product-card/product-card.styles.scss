@@ -1,0 +1,46 @@
+.product-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-size: 1.2em;
+
+    &:hover {
+        & .product-card__button {
+            opacity: 100%;
+        }
+    }
+
+    &__image {
+        height: 400px;
+        width: 100%;
+    }
+
+    &__button {
+        position: absolute;
+        bottom: 64px;
+        left: calc(50% - 100px);
+    }
+
+    &__name {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+    }
+
+    &__price {
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+    }
+
+    &__footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__button {
+        opacity: 0%;
+        transition: opacity .5s ease;
+    }
+}

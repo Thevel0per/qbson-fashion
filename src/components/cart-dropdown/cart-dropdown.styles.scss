@@ -1,0 +1,17 @@
+.cart-dropdown {
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    gap: 16px;
+    padding: 16px;
+    height: 400px;
+    width: 300px;
+    border: 1px solid black;
+    background: #FFF;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 999;
+
+    &__button {
+        width: 100%;
+    }
+}

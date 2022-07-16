@@ -2,11 +2,15 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as AppLogo } from '../../assets/images/logo.svg';
 import './navigation-bar.styles.scss';
-import { UserContext } from '../../contexts/user-context';
+import { UserContext } from '../../contexts/user.context';
 import { signOutUser } from '../../api/firebase/authetication';
+import CartIcon from '../cart-icon';
+import CartDropdown from '../cart-dropdown';
+import { CartContext } from '../../contexts/cart.context';
 
 const NavigationBar = () => {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
   const signOutHandler = async () => {
     await signOutUser();
   };
@@ -27,7 +31,11 @@ const NavigationBar = () => {
           </Link>
         )
         }
+        <button>
+          <li className='navigation__item'><CartIcon /></li>
+        </button>
       </ul>
+      { isCartOpen && <CartDropdown /> }
     </nav>
   );
 };

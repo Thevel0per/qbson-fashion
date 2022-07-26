@@ -13,7 +13,7 @@ const CartIcon = () => {
       <span className="material-symbols-rounded cart-icon__svg">
         shopping_bag
       </span>
-      <span className='cart-icon__items'>{cartItems.length}</span>
+      <span className='cart-icon__items'>{cartItems.reduce((total, current) => total + current.quantity, 0)}</span>
     </div>
   ); 
 };

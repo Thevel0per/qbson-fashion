@@ -1,0 +1,26 @@
+.checkout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    padding: 16px;
+
+    &__header {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        padding: 16px;
+        border-bottom: 1px solid black;
+    }
+
+    &__footer {
+        margin-top: 16px;
+    }
+
+    &__total {
+        width: 100%;
+        text-align: right;
+        font-size: 2.2em;
+    }
+}

@@ -31,6 +31,9 @@ const NavigationBar = () => {
           </Link>
         )
         }
+        <Link className='navigation__link' to='/shop'>
+          <li className='navigation__item'>Shop</li>
+        </Link>
         <button className='navigation__button'>
           <li className='navigation__item'><CartIcon /></li>
         </button>

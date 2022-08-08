@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './sign-in-form.styles.scss';
 import FormInput from '../form-input';
-import AppButton from '../app-button';
+import AppButton, { BUTTON_VARIANTS } from '../app-button';
 import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../../api/firebase/authetication';
 
 const DEFAULT_FORM_DATA = {
@@ -54,8 +54,8 @@ const SignInForm = () => {
         <FormInput label='Email' onChange={handleFieldChange} required id='email-signin' name='email' type='email' value={email}/>
         <FormInput label='Password' onChange={handleFieldChange} required id='password-signin' name='password' type='password' value={password}/>
         <div className='sign-in__actions'>
-          <AppButton type='submit' variant='inverted'>Sign In</AppButton>
-          <AppButton type='button' onClickHandler={logGoogleUser} variant='google'>Sign in with Google</AppButton>
+          <AppButton type='submit' variant={BUTTON_VARIANTS.base}>Sign In</AppButton>
+          <AppButton type='button' onClickHandler={logGoogleUser} variant={BUTTON_VARIANTS.google}>Sign in with Google</AppButton>
         </div>
       </form>
     </div>

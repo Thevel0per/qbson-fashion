@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { createAuthUserWithEmailAndPassword } from '../../api/firebase/authetication';
 import { createUserDocumentFromAuth } from '../../api/firebase/firestore';
 import FormInput from '../form-input';
-import AppButton from '../app-button';
-import './sign-up-form.styles.scss';
+import AppButton, { BUTTON_VARIANTS } from '../app-button';
 
 const DEFAULT_FORM_DATA = {
   displayName: '',
@@ -51,7 +50,7 @@ const SignUpForm = () => {
         <FormInput label='Email' onChange={handleFieldChange} required id='email-signup' name='email' type='email' value={email}/>
         <FormInput label='Password' onChange={handleFieldChange} required id='password-signup' name='password' type='password' value={password}/>
         <FormInput label='Confirm Password' onChange={handleFieldChange} required id='passwordConfirm' name='passwordConfirm' type='password' value={passwordConfirm}/>
-        <AppButton type='submit' variant='default'>Sign Up</AppButton>
+        <AppButton type='submit' variant={BUTTON_VARIANTS.base}>Sign Up</AppButton>
       </form>
     </div>
   );

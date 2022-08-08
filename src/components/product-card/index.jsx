@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './product-card.styles.scss';
-import AppButton from '../app-button';
+import AppButton, { BUTTON_VARIANTS } from '../app-button';
 import { CartContext } from '../../contexts/cart.context';
 
 const ProductCard = ({product}) => {
@@ -16,7 +16,7 @@ const ProductCard = ({product}) => {
         <span className='product-card__name'>{name}</span>
         <span className='product-card__price'>{price}</span>
       </div>
-      <AppButton variant='inverted' className='product-card__button' onClickHandler={handleAddButtonClick}>Add to cart</AppButton>
+      <AppButton variant={BUTTON_VARIANTS.inverted} className='product-card__button' onClickHandler={handleAddButtonClick}>Add to cart</AppButton>
     </div>
   );
 };

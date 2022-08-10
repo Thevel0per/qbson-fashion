@@ -15,7 +15,11 @@ const CartDropdown = () => {
   return (
     <div className='cart-dropdown'>
       <ul className='cart-dropdown__items'>
-        { cartItems.map((item, i) => <CartItem key={`cart-item-${i}`} cartItem={item} />) }
+        {
+          cartItems.length > 0 ?
+            cartItems.map((item, i) => <CartItem key={`cart-item-${i}`} cartItem={item} />)
+            : <li>Cart is empty</li>
+        }
       </ul>
       <AppButton onClickHandler={handleNavigateToCheckout} className='cart-dropdown__button'>CHECKOUT</AppButton>
     </div>

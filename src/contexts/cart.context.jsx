@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer } from 'react';
 
 const increaseCartItemQuantity = (cartItems, product) => {
   const cartItemIndex = cartItems.findIndex(item => item.product.id === product.id);
@@ -36,20 +36,52 @@ export const CartContext = createContext({
   calculateCartTotalPrice: () => {},
 });
 
+const INITIAL_STATE = {
+  isCartOpen: false,
+  cartItems: [],
+};
+
+export const ALLOWED_ACTIONS = {
+  'SET_CART_ITEMS': 'SET_CART_ITEMS',
+  'SET_IS_CART_OPEN': 'SET_IS_CART_OPEN'
+};
+
+const cartReducer = (state, action) => {
+  const { type, payload } = action;
+  switch(type){
+  case ALLOWED_ACTIONS.SET_CART_ITEMS:
+    return {
+      ...state,
+      ...payload
+    };
+  case ALLOWED_ACTIONS.SET_IS_CART_OPEN:
+    return {
+      ...state,
+      isCartOpen: payload
+    };
+  default:
+    throw new Error(`Unhandled type of action in cartReducer: ${type} is not allowed.`);
+  }
+};
+
 export const CartContextProvider = ({children}) => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const [{cartItems, isCartOpen}, dispatch] = useReducer(cartReducer, INITIAL_STATE);
+
+  const setIsCartOpen = (isCartOpen) => {
+    dispatch({type: ALLOWED_ACTIONS.SET_IS_CART_OPEN, payload: isCartOpen});
+  };
+
   const addCartItem = (product) => {
     const updatedCart = increaseCartItemQuantity(cartItems, product);
-    setCartItems(updatedCart);
+    dispatch({type: ALLOWED_ACTIONS.SET_CART_ITEMS, payload: {cartItems: updatedCart}});
   };
   const removeCartItem = (product) => {
     const updatedCart = deleteCartItem(cartItems, product);
-    setCartItems(updatedCart);
+    dispatch({type: ALLOWED_ACTIONS.SET_CART_ITEMS, payload: {cartItems: updatedCart}});
   };
   const decrementItemQuantity = (product) => {
     const updatedCart = decreaseCartItemQuantity(cartItems, product);
-    setCartItems(updatedCart);
+    dispatch({type: ALLOWED_ACTIONS.SET_CART_ITEMS, payload: {cartItems: updatedCart}});
   };
   const calculateCartTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.quantity * item.product.price, 0);

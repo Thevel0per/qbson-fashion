@@ -2,14 +2,15 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as AppLogo } from '../../assets/images/logo.svg';
 import './navigation-bar.styles.scss';
-import { UserContext } from '../../contexts/user.context';
 import { signOutUser } from '../../api/firebase/authetication';
 import CartIcon from '../cart-icon';
 import CartDropdown from '../cart-dropdown';
 import { CartContext } from '../../contexts/cart.context';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
 
 const NavigationBar = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
   const signOutHandler = async () => {
     await signOutUser();

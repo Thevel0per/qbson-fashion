@@ -37,16 +37,12 @@ export const addCollectionWithDocuments = async (collectionKey, objectsToAdd) =>
   console.log('done!');
 };
 
-export const getCollectionWithDocuments = async () => {
-  const collectionRef = collection(db, 'categories');
+export const getCollectionWithDocuments = async (collectionName) => {
+  const collectionRef = collection(db, collectionName);
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((accumulator, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
-    accumulator[title.toLowerCase()] = items;
-    return accumulator;
-  }, {});
+  const collectionDocuments = querySnapshot.docs.map(docSnapshot => docSnapshot.data());
 
-  return categoryMap;
+  return collectionDocuments;
 };
